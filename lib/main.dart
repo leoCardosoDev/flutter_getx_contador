@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_esp_contador/pages/home_page.dart';
+import 'package:flutter_getx_esp_contador/pages/splash_page.dart';
+import 'package:get/route_manager.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,13 +9,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: SplashPage(),
     );
   }
 }

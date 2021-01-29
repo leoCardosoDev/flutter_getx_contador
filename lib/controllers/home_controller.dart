@@ -5,6 +5,18 @@ class HomeController extends GetxController {
 
   int get counter => _counter;
 
+  @override
+  void onInit() {
+    print("Chamado ANTES de renderizar");
+    super.onInit();
+  }
+
+  @override
+  void onReady() {
+    print("Chamado DEPOIS de renderizar");
+    super.onReady();
+  }
+
   void increment() {
     this._counter++;
     update();
