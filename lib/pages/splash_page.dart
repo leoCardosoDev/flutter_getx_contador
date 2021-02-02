@@ -6,6 +6,9 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(
+        dispose: (_) {
+          print('Normal Dispose');
+        },
         init: SplashController(),
         builder: (_) => Scaffold(
               backgroundColor: Colors.amberAccent,
