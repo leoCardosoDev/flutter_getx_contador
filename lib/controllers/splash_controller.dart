@@ -1,6 +1,7 @@
-import 'package:flutter_getx_esp_contador/pages/home_page.dart';
 import 'package:get/state_manager.dart';
 import 'package:get/route_manager.dart';
+
+import './../pages/home/home_page.dart';
 
 class SplashController extends GetxController {
   @override
