@@ -8,18 +8,24 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       init: _controller,
-      builder: (_) => Scaffold(
-        body: Center(
-          child: Text(
-            _.counter.toString(),
-            style: TextStyle(fontSize: 30),
+      builder: (_) {
+        print("Build Home");
+        return Scaffold(
+          body: Center(
+            child: GetBuilder<HomeController>(
+              id: 'text',
+              builder: (_) => Text(
+                _.counter.toString(),
+                style: TextStyle(fontSize: 30),
+              ),
+            ),
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _.increment,
-          child: Icon(Icons.add),
-        ),
-      ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: _.increment,
+            child: Icon(Icons.add),
+          ),
+        );
+      },
     );
   }
 }

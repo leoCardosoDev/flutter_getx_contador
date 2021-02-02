@@ -19,6 +19,6 @@ class HomeController extends GetxController {
 
   void increment() {
     this._counter++;
-    update();
+    update(['text'], _counter >= 10);
   }
 }
