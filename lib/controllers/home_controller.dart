@@ -1,5 +1,6 @@
 import 'package:flutter_getx_esp_contador/api/users_api.dart';
 import 'package:flutter_getx_esp_contador/models/users.dart';
+import 'package:flutter_getx_esp_contador/pages/profile/profile_page.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -34,5 +35,15 @@ class HomeController extends GetxController {
   void increment() {
     this._counter++;
     update(['text'], _counter >= 10);
+  }
+
+  Future<void> showUserProfile(User user) async {
+    final result = await Get.to<String>(
+      ProfilePage(),
+      arguments: user,
+    );
+    if (result != null) {
+      print("Result $result");
+    }
   }
 }
