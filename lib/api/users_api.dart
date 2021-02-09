@@ -10,9 +10,9 @@ class UsersAPI {
 
   Future<List<User>> getUsers(int page) async {
     try {
-      final Response response = await this
-          ._dio
-          .get('https://reqres.in/api/users', queryParameters: {"page": page});
+      final Response response = await this._dio.get(
+          'https://reqres.in/api/users',
+          queryParameters: {"page": page, "delay": 5});
 
       return (response.data['data'] as List)
           .map((users) => User.fromJson(users))
