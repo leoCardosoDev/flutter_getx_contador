@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_esp_contador/controllers/home_controller.dart';
-import 'package:flutter_getx_esp_contador/models/users.dart';
+import 'package:flutter_getx_esp_contador/models/user.dart';
 import 'package:get/get.dart';
 
 class HomeList extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_getx_esp_contador/models/users.dart';
+import 'package:flutter_getx_esp_contador/models/user.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {

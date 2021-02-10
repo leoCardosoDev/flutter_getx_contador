@@ -1,5 +1,5 @@
 import 'package:flutter_getx_esp_contador/api/users_api.dart';
-import 'package:flutter_getx_esp_contador/models/users.dart';
+import 'package:flutter_getx_esp_contador/models/user.dart';
 import 'package:flutter_getx_esp_contador/pages/profile/profile_page.dart';
 import 'package:get/get.dart';
 
