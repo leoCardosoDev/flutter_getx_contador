@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_esp_contador/controllers/global_controller.dart';
 import 'package:flutter_getx_esp_contador/controllers/home_controller.dart';
 // import 'package:flutter_getx_esp_contador/pages/home/widgets/home_list.dart';
 import 'package:flutter_getx_esp_contador/widgets/product_list.dart';
@@ -13,6 +14,17 @@ class HomePage extends StatelessWidget {
       builder: (_) {
         return Scaffold(
           //body: HomeList(),
+          appBar: AppBar(
+            actions: [
+              GetBuilder<GlobalController>(
+                id: 'favorites',
+                builder: (_) => FlatButton(
+                  onPressed: () {},
+                  child: Text("Favoritos (${_.favorites.length})"),
+                ),
+              ),
+            ],
+          ),
           body: ProductList(),
           floatingActionButton: FloatingActionButton(
             onPressed: _.increment,
