@@ -11,44 +11,19 @@ class ReactivePage extends StatelessWidget {
         print("reactive fora");
         return Scaffold(
           body: Center(
-            child: Obx(
-              () => ListView.builder(
-                itemCount: _.items.length,
-                itemBuilder: (__, index) {
-                  final String text = _.items[index];
-                  return ListTile(
-                    title: Text(text),
-                    trailing: IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: () {
-                        _.removeItem(index);
-                      },
-                    ),
-                  );
-                },
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Obx(() => Text("Age: ${_.myPet.value.age}")),
+                SizedBox(height: 20),
+                FlatButton(
+                  onPressed: () {
+                    _.setPetAge(_.myPet.value.age + 1);
+                  },
+                  child: Text("Set Age"),
+                ),
+              ],
             ),
-          ),
-          floatingActionButton: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              FloatingActionButton(
-                heroTag: 'add',
-                child: Icon(Icons.add),
-                onPressed: () {
-                  // _.increment();
-                  // _.removeItem(index);
-                },
-              ),
-              FloatingActionButton(
-                heroTag: 'date',
-                child: Icon(Icons.calendar_today),
-                onPressed: () {
-                  //_.getDate();
-                  _.addItem();
-                },
-              ),
-            ],
           ),
         );
       },

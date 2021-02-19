@@ -1,3 +1,4 @@
+import 'package:flutter_getx_esp_contador/models/pet.dart';
 import 'package:get/get.dart';
 
 class ReactiveController extends GetxController {
@@ -5,6 +6,8 @@ class ReactiveController extends GetxController {
   RxString currentDate = ''.obs;
   RxList<String> items = List<String>().obs;
   RxMap<String, dynamic> mapItems = Map<String, dynamic>().obs;
+
+  Rx<Pet> myPet = Pet(name: "Lulu", age: 2).obs;
 
   void increment() {
     counter.value++;
@@ -20,5 +23,9 @@ class ReactiveController extends GetxController {
 
   void removeItem(int index) {
     items.removeAt(index);
+  }
+
+  void setPetAge(int age) {
+    myPet.value = myPet.value.copyWith(age: age);
   }
 }
