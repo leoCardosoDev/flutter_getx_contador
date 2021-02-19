@@ -14,11 +14,11 @@ class ReactivePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Obx(() => Text("Age: ${_.myPet.value.age}")),
+                Obx(() => Text("Age: ${_.myPet.age}")),
                 SizedBox(height: 20),
                 FlatButton(
                   onPressed: () {
-                    _.setPetAge(_.myPet.value.age + 1);
+                    _.setPetAge(_.myPet.age + 1);
                   },
                   child: Text("Set Age"),
                 ),

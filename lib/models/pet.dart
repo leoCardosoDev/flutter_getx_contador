@@ -1,18 +1,43 @@
+import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 
-class Pet {
-  String name;
-  int age;
+class RxPet {
+  final RxString name;
+  final RxInt age;
 
-  Pet({
+  RxPet({
     @required this.name,
     @required this.age,
   });
+}
 
-  Pet copyWith({
-    String name,
-    int age,
+class Pet {
+  RxPet rx;
+  Pet({
+    @required String name,
+    @required int age,
   }) {
-    return Pet(name: name ?? this.name, age: age ?? this.age);
+    this.rx = RxPet(
+      name: name.obs,
+      age: age.obs,
+    );
   }
+
+  String get name => this.rx.name.value;
+  int get age => this.rx.age.value;
+
+  set name(String value) {
+    this.rx.name.value = value;
+  }
+
+  set age(int value) {
+    this.rx.age.value = value;
+  }
+
+  // Pet copyWith({
+  //   String name,
+  //   int age,
+  // }) {
+  //   return Pet(name: name ?? this.name, age: age ?? this.age);
+  // }
 }
