@@ -11,22 +11,32 @@ class ReactivePage extends StatelessWidget {
         print("reactive fora");
         return Scaffold(
           body: Center(
-            child: Obx(
-              () => ListView.builder(
-                itemCount: _.items.length,
-                itemBuilder: (__, index) {
-                  final String text = _.items[index];
-                  return ListTile(
-                    title: Text(text),
-                    trailing: IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: () {
-                        _.removeItem(index);
-                      },
-                    ),
-                  );
-                },
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Obx(
+                  () {
+                    print("MUDOU SEXO!?");
+                    return Text(
+                      'Sexo as 15:${_.counter.value.toString()}',
+                      style: TextStyle(
+                        fontSize: 30,
+                      ),
+                    );
+                  },
+                ),
+                Obx(
+                  () {
+                    print("MUDOU DATA!?");
+                    return Text(
+                      _.currentDate.value,
+                      style: TextStyle(
+                        fontSize: 30,
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
           ),
           floatingActionButton: Row(
@@ -36,16 +46,14 @@ class ReactivePage extends StatelessWidget {
                 heroTag: 'add',
                 child: Icon(Icons.add),
                 onPressed: () {
-                  // _.increment();
-                  // _.removeItem(index);
+                  _.increment();
                 },
               ),
               FloatingActionButton(
                 heroTag: 'date',
                 child: Icon(Icons.calendar_today),
                 onPressed: () {
-                  //_.getDate();
-                  _.addItem();
+                  _.getDate();
                 },
               ),
             ],
